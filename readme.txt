@@ -25,3 +25,5 @@ document.body.appendChild(document.createTextNode('hello world!'));
 
 //Components React는 모두 Component 에 대한 것 입니다. 
 //React 개발을 할 때는 모든 것을 Component 로서 생각해야 합니다. 
+
+
