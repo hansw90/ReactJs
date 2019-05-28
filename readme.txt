@@ -1,6 +1,6 @@
 //reflow : 여기서 레이아웃을 새로 구성하면서 계산하는것
 //repaint : 색상변경과 같은 레이아웃에 관계없는 것들읃 처리하는것
- 
+
 
 var style = document.body.style; // 캐싱
 
