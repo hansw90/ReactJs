@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.4/redux.js"></script>
+    </head>
+    <body>
+        <style>
+            .container{
+                border:5px solid black;
+                padding:10px;
+
+            }
+        </style>
+        
+        <div id="red"></div>
+        <script>
+function reducer(state,action) { //dispatch 에의 해서 action 값이 들어오면 reducer가 그 액션값과 기존의 state 값을 참조하여 새로운 state 값을 만들어 주는것 
+    if(state === undefined){
+        return {color :'yellow'}
+    }
+}
+var store =  Redux.createStore(reducer)
+function red(){
+    
+    var state = store.getState()
+    document.querySelector('#red').innerHTML = 
+    `
+    <div class="container" id="component_red" style="background-color:${state.color}">
+        <h1>red</h1>
+        <input type="button" value="fire" onclick="
+        document.querySelector('#component_red').style.backgroundColor='red';
+        document.querySelector('#component_green').style.backgroundColor='red';
+        document.querySelector('#component_blue').style.backgroundColor='red';
+        ">
+    </div> 
+    `
+}
+red();
+        </script>
+
+
+    </body>
+</html>

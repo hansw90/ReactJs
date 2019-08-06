@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.4/redux.js"></script>
+    </head>
+    <body>
+        <style>
+            .container{
+                border:5px solid black;
+                padding:10px;
+
+            }
+        </style>
+        
+        <div id="red"></div>
+        <script>
+function reducer(state,action) { //dispatch 에의 해서 action 값이 들어오면 reducer가 그 액션값과 기존의 state 값을 참조하여 새로운 state 값을 만들어 주는것 
+    console.log(state,action)
+    
+    if(state === undefined){
+        return {color :'yellow'}
+    }
+    var newState;
+    if(action.type=== 'CHANGE_COLOR'){
+        newState = Object.assign({},state,{color:'red'})
+    } 
+    return newState;
+}
+// reducer 이라는 것은 이전의 스테이트와 엑션을 받아서 다음의 스테이트 값을 리턴해주는 함수
+// Object.assign({},{name : 'egoing'} ,{city:'seoul'}) : 객체 복사하기
+// Object.assign의 첫번쨰 인자값은 리턴값이기 때문에 비워둬라
+var store =  Redux.createStore(reducer)
+function red(){
+    
+    var state = store.getState()
+    document.querySelector('#red').innerHTML = 
+    `
+    <div class="container" id="component_red" style="background-color:${state.color}">
+        <h1>red</h1>
+        <input type="button" value="fire" onclick="
+            store.dispatch({type:'CHANGE_COLOR',color:'red'}); 
+        ">
+    </div> 
+    `
+}
+red();
+        </script>
+
+
+    </body>
+</html>
